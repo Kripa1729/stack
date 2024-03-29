@@ -1,0 +1,40 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+int main() {
+  stack<int> st;
+  cout << "Enter the size of the Stack : ";
+  int size;
+  cin >> size;
+  for (int i = 0; i <= size - 1; i++) {
+    int x;
+    cin >> x;
+    st.push(x);
+  }
+  /*
+Enter the size of the Stack : 3
+1
+2
+3*/
+  /*while(st.size()>0){
+    cout<<st.top();
+st.pop();
+  }*/
+  // 321
+  // however it will empty the stack so we wil do :
+  stack<int> temp;
+  while (st.size() > 0) {
+    cout << st.top();
+    int x = st.top();
+    st.pop();
+    temp.push(x);
+  }
+  while(temp.size()>0){
+    int x=temp.top();
+    temp.pop();
+    st.push(x);
+  }
+  cout<<endl;
+  cout<<st.top();
+}
